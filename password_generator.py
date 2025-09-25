@@ -22,3 +22,7 @@ print(words)
 
 #-------------------------- Hard version -----------------------------#
 
+hword = list(words)
+random.shuffle(hword)
+result = ''.join(hword)
+print(result)
