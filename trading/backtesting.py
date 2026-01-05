@@ -4,9 +4,9 @@ import numpy as np     # For numerical operations
 import matplotlib.pyplot as plt  # For visualizations# Define parameters
 
 
-ticker = "VEDL.NS"  # Apple stock
-start_date = "2024-10-01"
-end_date = "2025-10-05"
+ticker = "WIPRO.NS"  # stock ticker goes here
+start_date = "2023-11-24"
+end_date = "2025-11-27"
 
 # Fetch historical stock data
 data = yf.download(ticker, start=start_date, end=end_date)
@@ -16,7 +16,7 @@ print(data.head())
 
 # Calculate Simple Moving Averages
 short_window = 50  # Short-term SMA
-long_window = 200  # Long-term SMA
+long_window = 150  # Long-term SMA
 
 data['SMA50'] = data['Close'].rolling(window=short_window).mean()
 data['SMA200'] = data['Close'].rolling(window=long_window).mean()
@@ -65,3 +65,4 @@ total_market_return = data['Cumulative Market Return'].iloc[-1] - 1
 
 print(f"Total Strategy Return: {total_strategy_return:.2%}")
 print(f"Total Market Return: {total_market_return:.2%}")
+print(data['SMA200'].first_valid_index())
