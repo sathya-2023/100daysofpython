@@ -4,6 +4,8 @@ import math
 W, H = 600, 600
 CX, CY = W // 2, H // 2
 
+STOP = math.pi * 7.1
+
 R1 = 50   # first radius
 R2 = 50   # second radius
 
@@ -38,29 +40,34 @@ def animate():
     if radius < R1:
         x1 = CX + radius
         y1 = CY
-        line1 = canvas.create_line(CX, CY, x1, y1, fill="white", width=2)
+        line1 = canvas.create_line(CX, CY, x1, y1, fill="white", width=1)
         radius += GROW_STEP
         root.after(16, animate)
         return
 
+    if angle1 < STOP:
+        color = "white"
+    else:
+        color = "cyan"
+
     # Phase 2: rotate first radius
-    if angle1 >= 14.2 * math.pi:
+    if angle1 >= 2*STOP:
         return
 
     x1 = CX + R1 * math.cos(angle1)
     y1 = CY - R1 * math.sin(angle1)
 
-    line1 = canvas.create_line(CX, CY, x1, y1, fill="gray", width=2)
+    line1 = canvas.create_line(CX, CY, x1, y1, fill="gray", width=1)
 
     # Second radius from endpoint of first
     x2 = x1 + R2 * math.cos(angle2)
     y2 = y1 - R2 * math.sin(angle2)
 
-    line2 = canvas.create_line(x1, y1, x2, y2, fill="white", width=2)
+    line2 = canvas.create_line(x1, y1, x2, y2, fill="white", width=1)
 
     # Trace only second endpoint
     if last_x2 is not None:
-        canvas.create_line(last_x2, last_y2, x2, y2, fill="gray", width=2)
+        canvas.create_line(last_x2, last_y2, x2, y2, fill=color, width=0.1)
 
     last_x2, last_y2 = x2, y2
 
