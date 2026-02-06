@@ -11,7 +11,7 @@ def match_ends(words):
         if len(i) >= 2 and i[0].lower() == i[-1].lower():
             count += 1
     return count
-# print(match_ends(name))
+
 
 #------------------------------------------------------------------------#
 
@@ -33,7 +33,6 @@ def front_x(words):
         else:
             other_words.append(w)
     return sorted(x_words) + sorted(other_words)
-# print(front_x(term))
 
 
 #----------------------------------------------------------------------#
@@ -48,10 +47,9 @@ def front_x(words):
 from operator import itemgetter
 def sort_last(tuples):
     return sorted(tuples, key=itemgetter(-1))
-# print(sort_last(num))
 
 #-------------------------------------------------------------------------------#
-# unit test cases to test the fucntions programs created
+# unit test cases to test the functions programs created
 
 def test(got, expected):
   if got == expected:

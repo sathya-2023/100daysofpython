@@ -13,7 +13,7 @@ import qrcode
 
 # ----------Creating function---------- #
 
-def make_qr(data, name="qr.png"):  #add file at the end like: .png or.jpg
+def make_qr(data, name="qr.png"):  #add filetype at the end like: .png or.jpg
     import qrcode
     img = qrcode.make(data)
     img.save(name)
