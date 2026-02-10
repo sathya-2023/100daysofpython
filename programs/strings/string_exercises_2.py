@@ -33,5 +33,3 @@ def not_bad(s):
     print(s)
     return s
 
-
-
