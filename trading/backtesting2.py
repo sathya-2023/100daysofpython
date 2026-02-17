@@ -6,8 +6,16 @@ import numpy as np
 import yfinance as yf
 
 def fetch_data(symbol='AAPL', period='2y', interval='1d'):
-    df = yf.download(symbol, period=period, interval=interval, progress=False)
-    df = df[['Open','High','Low','Close','Volume']].dropna()
+    df = yf.download(
+        symbol,
+        period=period,
+        interval=interval,
+        auto_adjust=False,
+        progress=False,
+    )
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+    df = df[['Open', 'High', 'Low', 'Close', 'Volume']].dropna()
     return df
 
 def backtest_ma(df, fast=20, slow=50, initial_capital=10000, risk_per_trade=0.01):
