@@ -1,6 +1,6 @@
 # Simple Weather App
 # Enter your OpenWeatherMap API key below
-API_KEY = "YOUR_API_KEY_HERE"
+API_KEY = "b9c7cc4bd45bbd4b595259d1aca8e1fd"
 
 import requests
 from datetime import datetime
