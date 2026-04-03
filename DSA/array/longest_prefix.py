@@ -1,4 +1,4 @@
-f_word = ['flower', 'flow', 'flight']
+f_word = ['flower', 'flow', 'flight',2]
 def longest_common_prefix(strs):
     if not strs:
         return ""
