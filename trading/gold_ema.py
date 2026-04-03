@@ -9,7 +9,7 @@ def calculate_ema(data, period):
 def get_gold_ema():
     """Fetch gold data and calculate 20 and 50 day EMAs"""
     # Gold ticker symbol (GC=F for Gold Futures or GLD for Gold ETF)
-    ticker = "WIPRO.NS"  # Gold Futures
+    ticker = "GC=F"  # Gold Futures
     
     # Fetch data for the last 100 days to ensure we have enough data for 50-day EMA
     end_date = datetime.now()
